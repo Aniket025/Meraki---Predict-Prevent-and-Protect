@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+
+        <title> Meraki|Home </title>
+        <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+
+        <style type="text/css">
+
+            html{
+                width:100%;
+                background-color: #EFF0F2;
+                font-family: Tahoma, sans-serif;
+            }
+            body{
+                height:100%;
+            }
+            #wrapper {
+                position: relative;
+                width: 100%;
+                min-height: 100%;
+                padding-bottom: 40px;
+                background-color: #EFF0F2;
+            }
+            #Meraki{
+                font-weight: bold;
+                font-size: 21px;
+            }
+            .clear{
+                clear :both;
+            }
+            .heading{
+                background-color: #17A2B8;
+                color: white;
+                padding:40px;
+                font-size: 1.2rem;
+            }
+            .styling1{
+                background-color: #5BD3FF;
+                height: 10px;
+            }
+            .styling2{
+                background-color: #8CFFE9;
+                height: 10px;
+            }
+            .sms-box,.intro{
+                margin: 40px;
+                background-color: white;
+            }
+            .box{
+                padding-bottom: 10px;
+                margin-bottom: 40px !important;
+            }
+            .box-heading{
+                padding: 10px;
+                font-weight: 500;
+                font-size:20px;
+            }
+            .box-hr{
+                margin: 0 0 5px 0;
+            }
+            .box-content{
+                font-size: 15px;
+                padding: 10px 20px 10px 20px;
+                color: #70808E;
+            }
+            #sms-reg, #sms-unreg{
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .hide{
+                display: none;
+            }
+            .introduction{
+                font-size: 40px;
+                font-weight: 600;
+                padding-left: 30px;
+            }
+
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <nav class = "navbar navbar-expand-sm navbar-dark bg-info">
+
+                <a class = "navbar-brand" id = "Meraki" href = "#">Meraki</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class = "collapse navbar-collapse" id = "navbarNav">
+                    <ul class = "navbar-nav alignment">
+                        <li class = "nav-item alignment">
+                            <a class = "nav-link" href = "#">Prediction</a>
+                        </li>
+                        <li class = "nav-item alignment">
+                            <a class = "nav-link" href = "relative.html">Relative Enquiry</a>
+                        </li>
+                        <li class = "nav-item alignment">
+                            <a class = "nav-link" href = "#">Routing</a>
+                        </li>
+                        <li class = "nav-item alignment">
+                            <a class = "nav-link" href = "safespots.html">Safe Spots</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class = "clear"></div>
+
+            <div class="heading">
+                <h1 class="text-center">
+                    A step towards safer tommorrow
+                </h1>
+                <p class="text-center">
+                    Meraki - A disaster management system
+                </p>
+            </div>
+            <div class="styling1"></div>
+            <div class="styling2"></div>
+
+            <div class = "sms-box">
+                <div class="hide alert alert-success" id='subscribed-alert' role="alert">
+                    <span>Successfully Subscribed</span>
+                </div>
+                <div class="hide alert alert-success" id='Unsubscribed-alert' role="alert">
+                    <span>Successfully Unsubscribed</span>
+                </div>
+                <div class="hide alert alert-warning" id='warning-alert' role="alert">
+                    <span>Already subscribed</span>
+                </div>
+                <div class="hide alert alert-danger" id='incomplete-alert' role="alert">
+                    <span>Please fill both feilds</span>
+                </div>
+                <div class="hide alert alert-danger" id='error-alert' role="alert">
+                    <span>Connection error. Try again later</span>
+                </div>
+                <div class="box shadow rounded">
+                    <div class="box-heading text-center">
+                        Activate/Deactivate SMS notifications
+                    </div>
+                    <hr class="box-hr">
+                    <div class="box-content">
+                        <form>
+                            <div class="form-group">
+                                <label for="sms-name">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="sms-name" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="sms-contact">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="sms-contact" placeholder="Enter your contact number without (+91)- or 0">
+                            </div>
+                        </form>
+                        <button id="sms-unreg" class="btn btn-primary float-right">Unubscribe</button>
+                        <button id="sms-reg" class="btn btn-info float-right">Subscribe</button>
+                        <div class="clear"></div>
+                        <i>You will be notified about all the natural disasters information after you signup for the service</i>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "intro">
+                <div class="box shadow rounded">
+                    <div class="box-heading introduction">
+                        Introduction
+                    </div>
+                    <hr class="box-hr">
+                    <div class="box-content">
+                        Meraki uses AI to predict, prevent and help people respond quickly during and after a disaster. Our model focuses on providing information to four type of users -> victims , citizens , volunteers and organizations. We aim to solve various problems that are associated with the pre-disaster, disaster and post-disaster phase.
+                        We provide four solutions:
+                        <ul>
+                            <li><a href="#pred" class="normal">Prediction system</a></li>
+                            <li><a href="#rel">Relative Enquiry</a></li>
+                            <li><a href="#rout">Routing</a></li>
+                            <li><a href="#safe">Safe spots management</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <div class="intro box shadow rounded">
+                    <div class="box-heading" id="pred">
+                        <h1>Prediction</h1>
+                    </div>
+                    <hr class="box-hr">
+                    <div class="box-content">
+                        It uses AI to make prediction of disasters like earthquake,flood,forest fire and cyclone in advance by crunching chunks of data ( historical and real time ) and in-depth analysis of other related factors respective to each natural disaster.
+                    </div>
+                </div>
+                <div class="intro box shadow rounded">
+                    <div class="box-heading introduction" id="rel">
+                        Relative Enquiry
+                    </div>
+                    <hr class="box-hr">
+                    <div class="box-content">
+                        Meraki uses AI to predict, prevent and help people respond quickly during and after a disaster. Our model focuses on providing information to four type of users -> victims , citizens , volunteers and organizations. We aim to solve various problems that are associated with the pre-disaster, disaster and post-disaster phase.
+                        We provide four solutions:
+                    </div>
+                </div>
+                <div class="intro box shadow rounded">
+                    <div class="box-heading introduction" id="rout">
+                        Routing
+                    </div>
+                    <hr class="box-hr">
+                    <div class="box-content">
+                        Meraki uses AI to predict, prevent and help people respond quickly during and after a disaster. Our model focuses on providing information to four type of users -> victims , citizens , volunteers and organizations. We aim to solve various problems that are associated with the pre-disaster, disaster and post-disaster phase.
+                        We provide four solutions:
+                    </div>
+                </div>
+                <div class="intro box shadow rounded">
+                    <div class="box-heading introduction" id="safe">
+                        Safe spots
+                    </div>
+                    <hr class="box-hr">
+                    <div class="box-content">
+                        Meraki uses AI to predict, prevent and help people respond quickly during and after a disaster. Our model focuses on providing information to four type of users -> victims , citizens , volunteers and organizations. We aim to solve various problems that are associated with the pre-disaster, disaster and post-disaster phase.
+                        We provide four solutions:
+                    </div>
+                </div>
+        </div>
+
+
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $("#sms-reg").click(function(){
+            var smsData = {
+                name: $("#sms-name").val(),
+                contact: $("#sms-contact").val()
+            };
+            if (  $("#sms-name").val()!= "" && $("#sms-contact").val()!= "" )
+            {
+                jQuery.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    'type': 'POST',
+                    'url': "https://merakiicodefundo.azurewebsites.net/smsService",
+                    'data': JSON.stringify(smsData),
+                    'dataType': 'json',
+                    'success': function (data) {
+                        subscribeResponse(data);
+                    }
+                });
+            } else {
+                $("#incomplete-alert").show();
+                setTimeout(function () {
+                    $("#incomplete-alert").slideUp(500);
+                }, 2000);
+            }
+            function subscribeResponse(data){
+                if ( data == 2 ){
+                    $("#warning-alert").show();
+                    setTimeout(function () {
+                        $("#warning-alert").slideUp(500);
+                    }, 2000);
+                }else if ( data == 1 || data == 3 ){
+                    $("#subscribed-alert").show();
+                    setTimeout(function () {
+                        $("#subscribed-alert").slideUp(500);
+                    }, 2000);
+                } else {
+                    $("#error-alert").show();
+                    setTimeout(function () {
+                        $("#error-alert").slideUp(500);
+                    }, 2000);
+                }
+            }
+
+        })
+        $("#sms-unreg").click(function(){
+            var smsData = {
+                name: $("#sms-name").val(),
+                contact: $("#sms-contact").val()
+            };
+            if (  $("#sms-name").val()!= "" && $("#sms-contact").val()!= "" )
+            {
+                jQuery.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    'type': 'POST',
+                    'url': "https://merakiicodefundo.azurewebsites.net/smsService/0",
+                    'data': JSON.stringify(smsData),
+                    'dataType': 'json',
+                    'success': function (data) {
+                        UnsubscribeResponse(data);
+                    }
+                });
+            } else {
+                $("#incomplete-alert").show();
+                setTimeout(function () {
+                    $("#incomplete-alert").slideUp(500);
+                }, 2000);
+            }
+            function UnsubscribeResponse(data){
+                if ( data == 1 ){
+                    $("#Unsubscribed-alert").show();
+                    setTimeout(function () {
+                        $("#Unsubscribed-alert").slideUp(500);
+                    }, 2000);
+                }else {
+                    $("#error-alert").show();
+                    setTimeout(function () {
+                        $("#error-alert").slideUp(500);
+                    }, 2000);
+                }
+            }
+
+        })
+    </script>
+
+</html>
